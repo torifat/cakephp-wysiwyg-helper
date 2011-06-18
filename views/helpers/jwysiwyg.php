@@ -92,7 +92,7 @@ class JwysiwygHelper extends AppHelper {
 * @param array $nicOptions Array of Jwysiwyg attributes for this textarea
 * @return string An HTML textarea element with Jwysiwyg
 */
-	function textarea($field = null, $options = array(), $nicOptions) {
+	function textarea($field = null, $options = array(), $nicOptions = array()) {
 		return $this->Form->textarea($field, $options) . $this->_build($field, $nicOptions);
 	}
 

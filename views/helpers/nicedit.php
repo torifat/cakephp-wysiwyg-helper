@@ -16,7 +16,7 @@ class NiceditHelper extends AppHelper {
  *
  * @var array
  */
-	var $helpers = array('Form', 'Javascript');
+	var $helpers = array('Form', 'Javascript', 'Html');
 
 /**
  * Whether helper has been initialized once or not
@@ -57,7 +57,7 @@ class NiceditHelper extends AppHelper {
 			"
 			var area1;
 			function makePanel() {
-				area1 = new nicEditor({fullPanel : true}).panelInstance(
+				area1 = new nicEditor({fullPanel : true, iconsPath : '" . $this->Html->url('/js/nicedit/nicEditorIcons.gif') . "'}).panelInstance(
 					'" . $modelFieldPair['model'] . $modelFieldPair['field'] . "',
 					{hasPanel : true}
 				);
@@ -86,7 +86,7 @@ class NiceditHelper extends AppHelper {
 * @param array $nicOptions Array of Nicedit attributes for this textarea
 * @return string An HTML textarea element with Nicedit
 */
-	function textarea($field = null, $options = array(), $nicOptions) {
+	function textarea($field = null, $options = array(), $nicOptions = array()) {
 		return $this->Form->textarea($field, $options) . $this->_build($field, $nicOptions);
 	}
 
